@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Found recipes
+{% endblock %}
+
+{% block main %}
+
+    <div class="container is-max-desktop">
+
+        <h2 class="title is-2">Found</h2>
+        <h3 class="subtitle">
+
+            {% if recipes | length > 1 %}
+
+                You have {{ recipes | length }} hits :)
+
+            {% elif recipes | length == 1 %}
+
+                You have 1 hit :|
+
+            {% else %}
+
+                You have 0 hits :(
+
+            {% endif %}
+
+        </h3>
+
+        <section class="section">
+
+            <div class="columns is-multiline is-multiline is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+
+                {% for recipe in recipes %}
+
+                <div class="column" style="min-width: 300px;">
+                    <div class="box">
+
+                        {% if source == "edamam" %}
+
+                        <p class="title is-5 has-text-black">{{ recipe['label'] }}</p>
+                        <img src="{{ recipe['images']['REGULAR']['url'] }}" alt="{{ recipe['label'] }}">
+                        <p class="subtitle is-6 has-text-primary">Ingredients: {{ recipe['ingredients'] | length }}</p>
+                        <div class="buttons">
+                            <a class="button is-link" href="{{ recipe['url'] }}" target="_blank" rel="noreferrer noopener">
+                                View recipe
+                            </a>
+                            <form method="post" action="/save">
+                                <input type="hidden" value="{{ recipe['label'] }}" name="title">
+                                <input type="hidden" value="{{ recipe['images']['REGULAR']['url'] }}" name="image">
+                                <input type="hidden" value="{{ recipe['ingredients'] | length }}" name="ingredients">
+                                <input type="hidden" value="{{ recipe['url'] }}" name="url">
+                                <input type="hidden" value="{{ recipe['uri'] }}" name="uri">
+
+                        {% else %}
+
+                        <p class="title is-5 has-text-black">{{ recipe['title'] }}</p>
+                        <img src="{{ recipe['image'] }}" alt="{{ recipe['title'] }}">
+
+                        <p class="subtitle is-6 has-text-primary">
+                            Cost per serving: <b>{{ recipe['servingCost'] | usd }}</b><br>
+                            Cooking time: <b>{{ recipe['time'] }} minutes</b><br>
+                            Ingredients: <b>{{ recipe['ingredients'] }}</b>
+                        </p>
+
+                        <div class="buttons">
+                            <a class="button is-link" href="{{ recipe['url'] }}" target="_blank" rel="noreferrer noopener">
+                                View recipe
+                            </a>
+                            <form method="post" action="/save">
+                                <input type="hidden" value="{{ recipe['title'] }}" name="title">
+                                <input type="hidden" value="{{ recipe['image'] }}" name="image">
+                                <input type="hidden" value="{{ recipe['ingredients'] }}" name="ingredients">
+                                <input type="hidden" value="{{ recipe['url'] }}" name="url">
+                                <input type="hidden" value="{{ recipe['id'] }}" name="id">
+                                <input type="hidden" value="{{ recipe['servingCost'] }}" name="cost">
+                                <input type="hidden" value="{{ recipe['time'] }}" name="time">
+
+                        {% endif %}
+
+                                <button class="button" type="submit" name="saveRecipe" id="#savebutton">
+                                    Save recipe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}

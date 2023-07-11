@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search recipe
+{% endblock %}
+
+{% block main %}
+
+<div class="container is-max-desktop">
+
+    <h2 class="title is-2">Search</h2>
+    <h3 class="subtitle">Tell us what you have and we'll look it up for you.</h3>
+
+    <section class="section">
+
+        <div class="columns is-centered">
+            <div class="column is-5">
+
+                <form action="/" method="post" autocomplete="off" class="box">
+
+                    <div class="field">
+                        <label for="text">Your ingredients</label>
+                        <div class="control has-icons-left">
+                            <input class="input" name="ingredients" placeholder="Pasta, Eggs, Bacon..." required autofocus>
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-plate-wheat"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="number">Maximum cost per serving (in $)</label>
+                        <div class="control has-icons-left">
+                            <input class="input" name="maxCost" placeholder="3">
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="checkbox">
+                            <input type="checkbox" name="spoon">
+                            Get cost and cooking time info
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <button class="button is-primary is-fullwidth" type="submit">Submit</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

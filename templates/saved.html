@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Saved recipes
+{% endblock %}
+
+{% block main %}
+
+    <div class="container is-max-desktop">
+
+        <h2 class="title is-2">Saved</h2>
+        <h3 class="subtitle">You have {{ savedRecipes | length }} saved recipes.</h3>
+
+        <section class="section">
+
+            <div class="columns is-multiline is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+
+                {% for recipe in savedRecipes %}
+
+                <div class="column" style="width: 300px;">
+                    <div class="box">
+
+                        <p class="title is-5 has-text-black">{{ recipe['title'] }}</p>
+
+                        <img src="{{ recipe['image'] }}" alt="{{ recipe['label'] }}">
+
+                        {% if recipe['cost'] > 0 and recipe['time'] > 0 %}
+
+                        <p class="subtitle is-6 has-text-primary">
+                            Cost per serving: <b>{{ recipe['cost'] | usd }}</b><br>
+                            Cooking time: <b>{{ recipe['time'] }} minutes</b><br>
+                            Ingredients: <b>{{ recipe['ingredients'] }}</b>
+                        </p>
+
+                        {% else %}
+
+                        <p class="subtitle is-6 has-text-primary">
+                            Cost per serving: <b>N/A</b><br>
+                            Cooking time: <b>N/A</b><br>
+                            Ingredients: <b>{{ recipe['ingredients'] }}</b>
+                        </p>
+
+                        {% endif %}
+
+                        <div class="buttons">
+                            <a class="button is-link" href="{{ recipe['url'] }}">View recipe</a>
+                            <form method="post" action="/delete">
+                                <button class="button" value="{{ recipe['id'] }}" type="submit" name="deleteRecipe">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}

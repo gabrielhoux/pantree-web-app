@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+        <script src="https://kit.fontawesome.com/9c1d9ed11d.js" crossorigin="anonymous"></script>
+
+        <link href="/static/plate-wheat-solid.svg" rel="icon">
+
+        <title>Pantree: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+        <section class="hero is-primary is-fullheight is-success">
+            <div class="hero-head">
+
+                <nav class="navbar">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                            <img src="static/pantree-yellow.png" width="80" height="100">
+                        </a>
+
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+
+                    {% if session["user_id"] %}
+
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">
+                            Search Recipe
+                            </a>
+                            <a class="navbar-item" href="/saved">
+                            Saved Recipes
+                            </a>
+                        </div>
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <span class="icon is-small">
+                                    <i class="fa-regular fa-user"></i>
+                                </span>
+                                <span style="padding-left: 5px;">
+                                    <strong>{{ session["user"] }}</strong>
+                                </span>
+                            </div>
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-light" href="/logout">
+                                    <strong>Log out</strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-primary" href="/register">
+                                    <strong>Register</strong>
+                                    </a>
+                                    <a class="button is-light" href="/login">
+                                    Log in
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endif %}
+
+                    </div>
+
+                </nav>
+
+            <div class="hero-body is-justify-content-center is-align-items-center"
+                <main class="container">
+                    {% block main %}{% endblock %}
+                </main>
+            </div>
+
+            <div class="hero-foot">
+                <div class="content has-text-centered">
+                <p>
+                    <strong>Pantree</strong> by Gabriel Houx.
+                    Data courtesy of <a href="https://www.edamam.com/"><strong>Edamam</strong></a>
+                    and <a href="https://spoonacular.com/food-api"><strong>Spoonacular</strong></a>.
+                </p>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>

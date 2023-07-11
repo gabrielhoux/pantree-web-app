@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 108.64px;
+        fill: #ff3;
+        font-family: VEGAN-FOOD, VEGAN-FOOD, "VEGAN FOOD";
+      }
+    </style>
+  </defs>
+  <text id="pantree" class="cls-1" transform="translate(201.597 211.75) scale(4.146)">pantree</text>
+</svg>

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+    <h2 class="title is-2">Welcome to Pantree!</h2>
+    <h3 class="subtitle">Please use the following form to register an account</h3>
+
+    <section class="section">
+
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+
+                <form action="/register" method="post" class="box" autocomplete="off">
+
+                    <div class="field">
+                        <label for="text">Username</label>
+                        <div class="control has-icons-left">
+                            <input class="input " id="username" type="username" name="username" placeholder="User McUserface" required autofocus>
+                            <span class="icon is-small is-left">
+                                <i class="fa-regular fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="">Password</label>
+                        <div class="control has-icons-left">
+                            <input class="input" id="password" name="password" type="password" placeholder="************" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="">Confirm password</label>
+                        <div class="control has-icons-left">
+                            <input class="input is-primary" id="confirmation" type="password" name="confirmation" placeholder="************" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="has-text-centered">
+                            <p class="is-size-7">
+                                Password must contain at least 12 characters,
+                                including one uppercase, one lowercase, one digit
+                                and one special character.
+                            </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <button class="button is-primary is-fullwidth" type="submit">Register</button>
+                    </div>
+
+                    <div class="has-text-centered">
+                        <p class="is-size-7">Already have an account? <a href="/login" class="has-text-primary">Log in</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

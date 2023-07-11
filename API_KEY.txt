@@ -1,0 +1,6 @@
+# EDAMAM
+app_key = "51086659bd347b27f902c642c3aecf6e"
+app_id = "47d41702"
+
+# SPOONACULAR
+api_key = "06e49418a8694c87af4d4d0ef58d1efd"
