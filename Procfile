@@ -1,1 +1,1 @@
-web: gunicorn pantree.app:app
+web: gunicorn app:app
