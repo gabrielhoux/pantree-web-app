@@ -1,0 +1,1 @@
+web: gunicorn pantree-web-app.app:app
