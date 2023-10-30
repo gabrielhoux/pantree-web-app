@@ -1,5 +1,5 @@
 # PANTREE
-#### Video Demo:  https://youtu.be/lWi2JO4JrYo
+
 #### Description:
 
 Pantree is a web app that allows you to search for recipes from ingredients you may have in your... pantry.
