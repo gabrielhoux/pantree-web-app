@@ -2,6 +2,8 @@
 
 #### Description:
 
+Visit and use Pantree here: 
+
 Pantree is a web app that allows you to search for recipes from ingredients you may have in your... pantry.
 I've developped this app using Flask, SQLite, Bulma, and two APIs called Edamam and Spoonacular.
 A lot fo features I simply carried over from the CS50 Finance project. Why? I'm quite interested in Web Programming and feel comfortable using Python frameworks. I thought it better to keep training myself in Flask for this final project. I then aim to take CS50W and am excited to learn more.
