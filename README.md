@@ -2,7 +2,7 @@
 
 #### Description:
 
-Visit and use Pantree here: 
+Visit and use Pantree [here](https://pantree-web-app.fly.dev/).
 
 Pantree is a web app that allows you to search for recipes from ingredients you may have in your... pantry.
 I've developped this app using Flask, SQLite, Bulma, and two APIs called Edamam and Spoonacular.
