@@ -12,6 +12,7 @@ from spooncalls import searchByIngredients, getRecipeURL, getPriceBreakdown
 
 # Configure application
 app = Flask(__name__)
+port = 8000
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
@@ -325,4 +326,4 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=port)
